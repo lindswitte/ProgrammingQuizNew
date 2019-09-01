@@ -1,12 +1,5 @@
 console.log(`please work`)
 
-// for (var i = 0; i < 5; i++) {
-// 	question = question + i;
-// 	// console.log(i)
-// 	console.log(quiz[i])
-// }
-
-
 /*  BUILD PHASE */
 
 let quizElement = document.querySelector('.quiz')
@@ -48,9 +41,10 @@ let goToNextQuestion = function(){
 	// add active class to the next question
 	questionTrackingNumeralDevice++
 
-	let newQuestion = document.querySelectorAll('.quiz .question')
+	let allQuestions = document.querySelectorAll('.quiz .question')
 
-	 .question.classList.add('newQuestion');
+	allQuestions[questionTrackingNumeralDevice]
+
 
 }
 
