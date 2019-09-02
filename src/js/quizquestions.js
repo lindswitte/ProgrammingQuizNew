@@ -57,5 +57,5 @@ let quizData = [
 			{name: "andy", choice: "Just remember, every time you look up at the moon, I, too, will be looking at a moon. Not the same moon, obviously, That’s impossible."},
 			{name: "leslie", choice:' "We need to remember what’s important in life. Friends, waffles, and work. Or waffles, friends, work. It doesn’t matter. But work is third." '},
 		],
-	}
+	},
 ];
