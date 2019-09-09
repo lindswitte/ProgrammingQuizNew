@@ -24,6 +24,8 @@ quizData.forEach(function(question, i) { // happens 5 times
 
 });
 
+let startButton = document.querySelector('.start-button')
+startButton.addEventListener('click', quizElement)
 
 /* SHIT HAPPENING PHASE */
 
@@ -165,10 +167,15 @@ let countValues = function() {
 	*/
 	let img = document.createElement("img");
     img.src = "dist/img/"+winnerName+".jpg";
+    img.style.height = '100px';
+    img.style.width = '200px';
 
     // This next line will just add it to the <body> tag
     document.body.appendChild(img);
 }
+
+let resultsButton = document.querySelector('.results-button')
+resultsButton.addEventListener('click', countValues)
 
 // assign a value to the anwser
 let answerTotals = {
