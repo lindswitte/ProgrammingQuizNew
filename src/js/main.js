@@ -1,5 +1,30 @@
 console.log(`please work`)
 
+/*  QUIZ HOME PAGE */
+
+let startButton = document.querySelector('.start-button')
+
+let hideStartPageShowFirstQuestion = function() {
+	// hide start page
+	let quizStartPage = document.querySelector('.quiz-start-page')
+	quizStartPage.remove()
+
+	// hide start button
+	let quizStartButton = document.querySelector('.start-button')
+	quizStartButton.remove()
+
+	// show first question
+	let wholeQuizAndNothingButTheQuiz = document.querySelector('.quiz')
+	wholeQuizAndNothingButTheQuiz.classList.add('active')
+
+	let nextButton = document.querySelector('.next-button')
+	nextButton.classList.add('active')
+}
+
+
+startButton.addEventListener('click', hideStartPageShowFirstQuestion)
+
+
 /*  BUILD PHASE */
 
 let quizElement = document.querySelector('.quiz')
@@ -10,7 +35,7 @@ quizData.forEach(function(question, i) { // happens 5 times
 	let questionDiv = document.createElement('div')
 	questionDiv.classList.add('question')
 
-	questionDiv.innerHTML += i + '. ' + question.prompt + '<br>';
+	questionDiv.innerHTML += (i+1) + '. ' + question.prompt + '<br>';
 
 	question.options.forEach(function(option) { // happens 6 times (total of 30)
 		console.log(option)
@@ -23,9 +48,6 @@ quizData.forEach(function(question, i) { // happens 5 times
 	quizElement.appendChild(questionDiv)
 
 });
-
-let startButton = document.querySelector('.start-button')
-startButton.addEventListener('click', quizElement)
 
 /* SHIT HAPPENING PHASE */
 
@@ -43,6 +65,13 @@ let goToNextQuestion = function(){
 	currentQuestionIndex++
 
 
+	if (currentQuestionIndex === quizData.length-1) {
+		// make next button ......... say results
+
+		let nextButton = document.querySelector('.next-button')
+		nextButton.innerHTML = "Results"
+	}
+
 	if (currentQuestionIndex < quizData.length ) {
 
 		console.log('show next question number', currentQuestionIndex)
@@ -57,6 +86,14 @@ let goToNextQuestion = function(){
 	} else {
 
 		console.log('go to answer page')
+		// hide next button
+
+		let nextButton = document.querySelector('.next-button')
+		nextButton.classList.remove('active')
+
+		let resultsPage = document.querySelector('.results')
+		resultsPage.classList.add('active')
+
 		countValues()
 	}
 }
@@ -153,7 +190,6 @@ let countValues = function() {
 
 	console.log( 'the winner is', winnerName )
 
-
 	/*
 
 	img/andy.jpg
@@ -163,19 +199,15 @@ let countValues = function() {
 	img/ron.jpg
 	img/tom.jpg
 
-
 	*/
-	let img = document.createElement("img");
-    img.src = "dist/img/"+winnerName+".jpg";
-    img.style.height = '100px';
-    img.style.width = '200px';
+	
+	let resultsPersonName = document.querySelector('span.person')
+	resultsPersonName.innerHTML = toTitleCase( winnerName )
 
-    // This next line will just add it to the <body> tag
-    document.body.appendChild(img);
+	let img = document.querySelector('.results img')
+	img.src = "dist/img/"+winnerName+".jpg";
+
 }
-
-let resultsButton = document.querySelector('.results-button')
-resultsButton.addEventListener('click', countValues)
 
 // assign a value to the anwser
 let answerTotals = {
@@ -187,6 +219,15 @@ let answerTotals = {
 	april: 0,
 }
 
+// https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+    function toTitleCase(str) {
+        return str.replace(
+            /\w\S*/g,
+            function(txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+        );
+    }
 
 
 

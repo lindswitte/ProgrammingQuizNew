@@ -32,10 +32,102 @@ body {
 
 /* 2. Content ================================= */
 
-.question {
+.quiz-start-page {
+	width:100%;
+}
+
+.quiz-header-image {
+	width:100%;
+	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.quiz-title {
+	display:block;
+	text-align: center;
+	font-family: Georgia;
+	font-size: 200%;
+	padding: 20px; 
+}
+
+.quiz{
 	display: none;
 }
 
-.question.active {
-	display: block;
+.quiz.active{
+	display:block;
 }
+
+.start-button {
+	display: block;
+	font-size: 100%;
+	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 150px;
+	margin: 50px 200px;
+	padding: 20px;
+}
+
+.question{
+	display:none;
+}
+
+.question.active{
+	display:block;
+	line-height: 1.5;
+	font-family: Georgia;
+	font-size: 20px;
+	margin: 20px 0;
+	padding: 40px;
+}
+
+input[type=radio]{
+	margin: 10px;
+}
+
+.next-button {
+	display:none;
+}
+
+.next-button.active {
+	display: block;
+	position: center;
+	font-size: 100%;
+	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 150px;
+	margin: 0 200px;
+	padding: 20px;
+
+}
+
+.results {
+	display: none;
+}
+
+.results.active{
+	display:block;
+	text-align: center;
+	font-family: Georgia;
+	font-size: 200%;
+	padding: 20px;
+}
+
+img {
+	width:100%;
+}
+
+@media screen and (min-width: 1220px){
+
+	.start-button {
+		display: block;
+		font-size: 100%;
+		box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		width: 150px;
+		margin: 50px 650px;
+		padding: 20px;
+	}
+
+}
+
+
+
+
+
